@@ -18,5 +18,5 @@ jobs:
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws_region: ${{ secrets.AWS_REGION }}
         function_name: example-lambda-branch-name
-        zip_file: example-lambda-branch-name.zip
+        zip_file: output.zip
         dry_run: true
