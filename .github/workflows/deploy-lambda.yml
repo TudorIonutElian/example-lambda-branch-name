@@ -41,3 +41,4 @@ jobs:
         role: ${{ secrets.AWS_LAMBDA_ROLE }}
         zip_file: output.zip
         dry_run: true
+        environment: isProduction=false
