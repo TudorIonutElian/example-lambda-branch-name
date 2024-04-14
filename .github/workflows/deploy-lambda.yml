@@ -4,12 +4,28 @@ on:
     branches:
       - main
 jobs:
-
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Generate output.zip
+      run: |
+        npm install
+        zip -r output.zip *
+    - name: Upload output.zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: output.zip
+        path: output.zip
   deploy:
     name: Deploy Lambda Function
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Download output.zip
+      uses: actions/download-artifact@v2
+      with:
+        name: output.zip
     - name: AWS Lambda Deploy
       if: github.ref == 'refs/heads/main'
       uses: appleboy/lambda-action@v0.1.9
