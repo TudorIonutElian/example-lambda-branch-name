@@ -1,3 +1,8 @@
+### Github Documentation
+https://github.com/marketplace/actions/aws-lambda-deploy
+
+### Template
+```
 name: Deploy lambda function
 on: 
   push:
@@ -41,3 +46,4 @@ jobs:
         role: ${{ secrets.AWS_LAMBDA_ROLE }}
         zip_file: output.zip
         dry_run: true
+```
