@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  build:
+  build-lambda:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -17,7 +17,8 @@ jobs:
       with:
         name: output.zip
         path: output.zip
-  deploy:
+  deploy-lambda:
+    needs: build-lambda
     name: Deploy Lambda Function
     runs-on: ubuntu-latest
     steps:
